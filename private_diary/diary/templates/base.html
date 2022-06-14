@@ -1,0 +1,22 @@
+{% load static %}
+
+<html lang='ja'>
+    <head>
+        <meta charset="utf-8">
+
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <a href="{% url 'diary:index'%}">PRIVATE DIARY</a>
+            <a href="#">INQUIRY</a>
+            <a href="#">SIGN UP</a>
+            <a href="#">LOG IN</a>
+        </div>
+
+        {% block header %}{% endblock %}
+        {% block contents %}{% endblock %}
+    </body>
+<html>
+
