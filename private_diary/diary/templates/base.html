@@ -11,9 +11,24 @@
         <div id="wrapper">
             <a href="{% url 'diary:index' %}">PRIVATE DIARY</a>
             <a href="{% url 'diary:inquiry' %}">INQUIRY</a>
-            <a href="#">SIGN UP</a>
-            <a href="#">LOG IN</a>
+            {% comment %} <a href="#">SIGN UP</a> {% endcomment %}
+            {% comment %} <a href="#">LOG IN</a> {% endcomment %}
+            <ul>
+                {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'account_logout' %}">Log Out</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'account_signup' %}">Sign Up</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account_login' %}">Log In</a>
+                    </li>
+                {% endif %}
+            </ul>
         </div>
+
 
         {% block header %}{% endblock %}
 
