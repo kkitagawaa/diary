@@ -9,12 +9,20 @@
 
     <body>
         <div id="wrapper">
-            <a href="{% url 'diary:index' %}">PRIVATE DIARY</a>
-            <a href="{% url 'diary:inquiry' %}">INQUIRY</a>
-            {% comment %} <a href="#">SIGN UP</a> {% endcomment %}
-            {% comment %} <a href="#">LOG IN</a> {% endcomment %}
             <ul>
+                <li>
+                    <a href="{% url 'diary:index' %}">PRIVATE DIARY</a>
+                </li>
+                <li>
+                    <a href="{% url 'diary:inquiry' %}">INQUIRY</a>
+                </li>
+                {% comment %} <a href="#">SIGN UP</a> {% endcomment %}
+                {% comment %} <a href="#">LOG IN</a> {% endcomment %}
+            
                 {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'diary:diary_list' %}">DIARY LIST</a>
+                    </li>
                     <li>
                         <a href="{% url 'account_logout' %}">Log Out</a>
                     </li>
